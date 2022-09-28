@@ -1,5 +1,6 @@
-package net.codejava;
+package com.Capstone.Carpooling;
 
+import com.Capstone.Carpooling.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
