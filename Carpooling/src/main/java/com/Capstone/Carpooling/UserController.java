@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class Controller {
+public class UserController {
     @Autowired
     private UserRepo userRepo;
 
@@ -19,7 +19,7 @@ public class Controller {
     public List<User> getUsers(){
         return userRepo.findAll();
     }
-    @GetMapping(value="/save")
+    @PostMapping(value="/save")
     public String saveUser(@RequestBody User user){
         userRepo.save(user);
         return "Saved";
@@ -40,6 +40,4 @@ public class Controller {
         userRepo.delete(deletedUser);
         return "Deleted user with id"+ id;
     }
-
-
 }
