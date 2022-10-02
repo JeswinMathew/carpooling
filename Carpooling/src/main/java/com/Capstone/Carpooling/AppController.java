@@ -45,4 +45,11 @@ public class AppController {
 		
 		return "users";
 	}
+	@GetMapping("/book_ride")
+	public String BookRide(Model model) {
+		List<User> listUsers = userRepo.findAll();
+		model.addAttribute("listUsers", listUsers);
+
+		return "users";
+	}
 }

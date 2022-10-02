@@ -1,46 +1,120 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="ISO-8859-1">
-	<title>List Users</title>
-	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
-	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<title>FanRide</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/w3images/mac.jpg");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+</style>
 </head>
 <body>
-<div class="container text-center">
-	<div>
-		<form th:action="@{/logout}" method="post">
-			<p>
-				Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
-			</p>
-			<input type="submit" value="Sign Out" />
-		</form>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+	<div class="w3-bar w3-white w3-card" id="myNavbar">
+		<a href="/" class="w3-bar-item w3-button w3-wide">FANRIDE</a>
+		<!-- Right-sided navbar links -->
+		<div class="w3-right w3-hide-small">
+			<a class="w3-bar-item w3-button">
+
+				<form th:action="@{/logout}" method="post">
+					<input type="submit" visible="false" value="Sign Out" />
+				</form>
+
+			</a>
+
+
+		</div>
+		<!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+		<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+			<i class="fa fa-bars"></i>
+		</a>
 	</div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+	<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+	<a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+	<a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+	<a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
+	<a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
+	<a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+<!-Ride Details-->
+<div class="w3-container w3-display-container w3-padding-16">
+	<i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-transparent w3-display-topright"></i>
+	<br/><br/><h3>Book Your Ride</h3>
+	<h3></h3>
+	<hr>
+	<form action="/action_page.php" target="_blank">
+		<p><label><i class="fa fa-calendar-check-o"></i> Check In Date</label></p>
+		<input class="w3-input w3-border" type="text" placeholder="DD MM YYYY" name="CheckIn" required>
+		<p><label><i class="fa fa-calendar-o"></i> Check in Time</label></p>
+		<input class="w3-input w3-border" type="text" placeholder="HR MIN" name="CheckInTime" required>
+		<p><label><i class="fa fa-male"></i> Number of passengers</label></p>
+		<input class="w3-input w3-border" type="number" value="1" name="Passengers" min="1">
+		<p><label><i class="fa fa-calendar-check-o"></i> Pickup Location</label></p>
+		<input class="w3-input w3-border" type="text" placeholder="Pickup" name="PickUp" required>
+		<p><label><i class="fa fa-calendar-check-o"></i> DropOff Location</label></p>
+		<input class="w3-input w3-border" type="text" placeholder="DropOff" name="DropOff" required>
+
+		<p><button class="w3-button w3-block w3-green w3-left-align" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button></p>
+	</form>
+</div>
+
+
+
+</div>
+<div class="container text-center">
 	<div>
 		<h1>List of Users</h1>
 	</div>
-	
+
 	<div>
 		<table class="table table-striped table-bordered">
 			<thead class="thead-dark">
-				<tr>
-					<th>User ID</th>
-					<th>E-mail</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-				</tr>
+			<tr>
+				<th>User ID</th>
+				<th>E-mail</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+			</tr>
 			</thead>
 			<tbody>
-				<tr th:each="user: ${listUsers}">
-					<td th:text="${user.id}">User ID</td>
-					<td th:text="${user.email}">E-mail</td>
-					<td th:text="${user.firstName}">First Name</td>
-					<td th:text="${user.lastName}">Last Name</td>
-				</tr>
+			<tr th:each="user: ${listUsers}">
+				<td th:text="${user.id}">User ID</td>
+				<td th:text="${user.email}">E-mail</td>
+				<td th:text="${user.firstName}">First Name</td>
+				<td th:text="${user.lastName}">Last Name</td>
+			</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
+<script src="myscript.js"></script>
 </body>
 </html>
