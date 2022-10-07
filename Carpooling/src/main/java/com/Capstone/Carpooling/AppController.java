@@ -8,13 +8,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class AppController {
 
 	@Autowired
 	private UserRepository userRepo;
-	
+	@Autowired
+	private RideRepository rideRepo;
+
+
 	@GetMapping("")
 	public String viewHomePage() {
 		return "index";
@@ -45,11 +49,21 @@ public class AppController {
 		
 		return "users";
 	}
-	@GetMapping("/book_ride")
-	public String BookRide(Model model) {
-		List<User> listUsers = userRepo.findAll();
-		model.addAttribute("listUsers", listUsers);
 
-		return "users";
+	@GetMapping("/giveride")
+	public String showGiveRideForm(Model model) {
+		model.addAttribute("ride", new Ride());
+
+		return "give_ride";
 	}
+
+	@GetMapping("/takeride")
+	public String showTakeRideForm(Model model) {
+		model.addAttribute("traveller", new Traveller());
+
+		return "take_ride";
+	}
+
+
+
 }

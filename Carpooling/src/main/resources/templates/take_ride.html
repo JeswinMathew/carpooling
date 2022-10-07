@@ -36,8 +36,6 @@ body, html {
 		<a href="/" class="w3-bar-item w3-button w3-wide">FANRIDE</a>
 		<!-- Right-sided navbar links -->
 		<div class="w3-right w3-hide-small">
-			<a th:href="@{/Give_Ride}" class="w3-bar-item w3-button">Give Ride</a>
-			<a th:href="@{/Take_Ride}" class="w3-bar-item w3-button">Take Ride</a>
 			<a class="w3-bar-item w3-button">
 				<form th:action="@{/logout}" method="post">
 					<input type="submit" visible="false" value="Sign Out" />
@@ -64,12 +62,10 @@ body, html {
 	<a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 
-
-
 </div>
 <div class="container text-center">
 	<div>
-		<h1>List of Users</h1>
+		<h1>myProfile</h1>
 	</div>
 
 	<div>
