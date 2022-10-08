@@ -36,6 +36,8 @@ body, html {
 		<a href="/" class="w3-bar-item w3-button w3-wide">FANRIDE</a>
 		<!-- Right-sided navbar links -->
 		<div class="w3-right w3-hide-small">
+			<a th:href="@{/GiveRide}" class="w3-bar-item w3-button">Give Ride</a>
+			<a th:href="@{/TakeRide}" class="w3-bar-item w3-button">Take Ride</a>
 			<a class="w3-bar-item w3-button">
 				<form th:action="@{/logout}" method="post">
 					<input type="submit" visible="false" value="Sign Out" />
@@ -61,30 +63,6 @@ body, html {
 	<a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
 	<a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
-
-<!-Ride Details-->
-<div class="w3-container w3-display-container w3-padding-16">
-	<i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-transparent w3-display-topright"></i>
-	<br/><br/><h3>Book Your Ride</h3>
-	<h3></h3>
-	<hr>
-	<form action="/action_page.php" target="_blank">
-		<p><label><i class="fa fa-calendar-check-o"></i> Ride Date</label></p>
-		<input class="w3-input w3-border" type="text" placeholder="DD MM YYYY" name="RideDate" required>
-		<p><label><i class="fa fa-calendar-o"></i>Ride Start Time</label></p>
-		<input class="w3-input w3-border" type="text" placeholder="HR MIN" name="RideStartTime" required>
-		<p><label><i class="fa fa-male"></i>Ride End Time</label></p>
-		<input class="w3-input w3-border" type="text" placeholder="HR MIN" name="RideEndTime" required>
-		<p><label><i class="fa fa-male"></i> Number of passengers</label></p>
-		<input class="w3-input w3-border" type="number" value="1" name="PassengersCapacity" min="1">
-		<p><label><i class="fa fa-calendar-check-o"></i> Pickup Location</label></p>
-		<input class="w3-input w3-border" type="text" placeholder="Pickup" name="PickUp" required>
-		<p><label><i class="fa fa-calendar-check-o"></i> DropOff Location</label></p>
-		<input class="w3-input w3-border" type="text" placeholder="DropOff" name="DropOff" required>
-
-		<p><button class="w3-button w3-block w3-green w3-left-align" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button></p>
-	</form>
-</div>
 
 
 

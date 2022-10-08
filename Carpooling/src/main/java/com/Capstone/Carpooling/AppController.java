@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class AppController {
 
@@ -51,17 +53,23 @@ public class AppController {
 	}
 
 	@GetMapping("/giveride")
-	public String showGiveRideForm(Model model) {
-		model.addAttribute("ride", new Ride());
+	public String showRideForm(Model model) {
+		model.addAttribute("user", new Ride());
 
-		return "give_ride";
+		return "giveride";
+	}
+
+	@PostMapping("/process_ride")
+	public String processRide(Ride ride) {
+
+		rideRepo.save(ride);
+
+		return "register_success";
 	}
 
 	@GetMapping("/takeride")
-	public String showTakeRideForm(Model model) {
-		model.addAttribute("traveller", new Traveller());
-
-		return "take_ride";
+	public String showTakeRideForm() {
+		return "takeride";
 	}
 
 

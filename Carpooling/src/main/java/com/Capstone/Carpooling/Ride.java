@@ -10,20 +10,39 @@ public class Ride {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 45)
-    private String riderid;
+    @Column(length = 45)
+    private String userid;
 
-    @Column(nullable = false, unique = true, length = 45)
+    @Column(length = 45)
     private String startlocation;
 
-    @Column(nullable = false, unique = true, length = 45)
+    @Column(length = 45)
     private String destination;
 
-    @Column(nullable = false, unique = true, length = 45)
+    @Column(length = 45)
     private String passengercapacity;
 
-    @Column(nullable = false, unique = true, length = 45)
+    @Column(length = 45)
     private String CarNumber;
+
+    @Column(length = 45)
+    private String Charge;
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
+
+    public String getCharge() {
+        return Charge;
+    }
+
+    public void setCharge(String charge) {
+        Charge = charge;
+    }
 
     public Long getId() {
         return id;
@@ -31,14 +50,6 @@ public class Ride {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getRiderid() {
-        return riderid;
-    }
-
-    public void setRiderid(String riderid) {
-        this.riderid = riderid;
     }
 
     public String getStartlocation() {

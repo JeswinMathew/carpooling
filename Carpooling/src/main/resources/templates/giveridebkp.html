@@ -36,6 +36,8 @@ body, html {
 		<a href="/" class="w3-bar-item w3-button w3-wide">FANRIDE</a>
 		<!-- Right-sided navbar links -->
 		<div class="w3-right w3-hide-small">
+			<a th:href="@{/GiveRide}" class="w3-bar-item w3-button">Give Ride</a>
+			<a th:href="@{/TakeRide}" class="w3-bar-item w3-button">Take Ride</a>
 			<a class="w3-bar-item w3-button">
 				<form th:action="@{/logout}" method="post">
 					<input type="submit" visible="false" value="Sign Out" />
@@ -62,32 +64,66 @@ body, html {
 	<a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 
+
 </div>
 <div class="container text-center">
 	<div>
-		<h1>myProfile</h1>
+		<br/><br/>
+		<h1>User Registration - Sign Up</h1>
 	</div>
+	<form th:action="@{/process_ride}" th:object="${ride}"
+		  method="post" style="max-width: 600px; margin: 0 auto;">
+		<div class="m-3">
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Car number: </label>
+				<div class="col-8">
+					<input type="text" th:field="*{car_number}" class="form-control" required />
+				</div>
+			</div>
 
-	<div>
-		<table class="table table-striped table-bordered">
-			<thead class="thead-dark">
-			<tr>
-				<th>User ID</th>
-				<th>E-mail</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr th:each="user: ${listUsers}">
-				<td th:text="${user.id}">User ID</td>
-				<td th:text="${user.email}">E-mail</td>
-				<td th:text="${user.firstName}">First Name</td>
-				<td th:text="${user.lastName}">Last Name</td>
-			</tr>
-			</tbody>
-		</table>
-	</div>
+			<div class="form-group row">
+				<label class="col-4 col-form-label">start location: </label>
+				<div class="col-8">
+					<input type="text" th:field="*{startlocation}" class="form-control"
+						   required minlength="6" maxlength="10"/>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Destination: </label>
+				<div class="col-8">
+					<input type="text" th:field="*{destination}" class="form-control"
+						   required minlength="2" maxlength="20"/>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Passenger Capacity </label>
+				<div class="col-8">
+					<input type="text" th:field="*{passengercapacity}" class="form-control"
+						   required minlength="2" maxlength="20" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-4 col-form-label">User Id </label>
+				<div class="col-8">
+					<input type="text" th:field="*{userid}" class="form-control"
+						   required minlength="2" maxlength="20" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Charge</label>
+				<div class="col-8">
+					<input type="text" th:field="*{charge}" class="form-control"
+						   required minlength="2" maxlength="20" />
+				</div>
+			</div>
+
+			<div>
+				<button type="submit" class="btn btn-primary">Sign Up</button>
+			</div>
+		</div>
+	</form>
 </div>
 <script src="myscript.js"></script>
 </body>
