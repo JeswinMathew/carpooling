@@ -3,6 +3,8 @@ package com.Capstone.Carpooling;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,9 +51,11 @@ public class AppController {
 	
 	@GetMapping("/users")
 	public String listUsers(Model model) {
-		List<User> listUsers = userRepo.findAll();
+		Authentication authentication = (Authentication) SecurityContextHolder.getContext().getAuthentication();
+		CustomUserDetails LoggedInUser = (CustomUserDetails) authentication.getPrincipal();
+		String email = LoggedInUser.getEmail();
+		User listUsers = userRepo.findByEmail(email);
 		model.addAttribute("listUsers", listUsers);
-		
 		return "users";
 	}
 
@@ -68,11 +72,21 @@ public class AppController {
 		return "ride_giver_result";
 	}
 
-	@GetMapping("/ride_taker")
+
+@GetMapping("/ride_search")
+	public String listRideGivers(Model model) {
+		List<RideGiver> listRideGivers = ridegiverRepo.findAll();
+		model.addAttribute("listRideGivers", listRideGivers);
+		return "ride_search_form";
+	}
+
+
+@GetMapping("/ride_taker")
 	public String takerForm(Model model) {
 		model.addAttribute("ride_taker", new RideTaker());
 		return "ride_taker_form";
 	}
+
 
 	@PostMapping("/ride_taker_processed")
 	public String takerSubmit(@ModelAttribute RideTaker ride_taker, Model model) {
@@ -80,6 +94,8 @@ public class AppController {
 		ridetakerRepo.save(ride_taker);
 		return "ride_giver_result";
 	}
+
+
 
 
 

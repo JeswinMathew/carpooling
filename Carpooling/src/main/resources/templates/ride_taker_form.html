@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>FanRide</title>
+	<title>Book New Ride</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -36,8 +36,12 @@ body, html {
 		<a href="/" class="w3-bar-item w3-button w3-wide">FANRIDE</a>
 		<!-- Right-sided navbar links -->
 		<div class="w3-right w3-hide-small">
-			<a th:href="@{/users}" class="w3-bar-item w3-button">Book Your Ride</a>
-			<a th:href="@{/login}" class="w3-bar-item w3-button">Login</a>
+			<a th:href="@{/RideGivers}" class="w3-bar-item w3-button">Dashboard</a>
+			<a class="w3-bar-item w3-button">
+				<form th:action="@{/logout}" method="post">
+					<input type="submit" visible="false" value="Sign Out" />
+				</form>
+			</a>
 		</div>
 		<!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -57,12 +61,5 @@ body, html {
 	<a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 
-
-<h1>Form</h1>
-<form action="#" th:action="@{/ride_taker_processed}" th:object="${ride_taker}" method="post">
-	<p>Student Id: <input type="text" th:field="*{id}" /></p>
-	<p>Ride Id: <input type="text" th:field="*{ride_id}" /></p>
-	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
 </body>
 </html>

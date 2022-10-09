@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>FanRide</title>
+	<title>Dashboard</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -36,8 +36,8 @@ body, html {
 		<a href="/" class="w3-bar-item w3-button w3-wide">FANRIDE</a>
 		<!-- Right-sided navbar links -->
 		<div class="w3-right w3-hide-small">
-			<a th:href="@{/GiveRide}" class="w3-bar-item w3-button">Give Ride</a>
-			<a th:href="@{/TakeRide}" class="w3-bar-item w3-button">Take Ride</a>
+			<a th:href="@{/ride_giver}" class="w3-bar-item w3-button">Give Ride</a>
+			<a th:href="@{/ride_taker}" class="w3-bar-item w3-button">Take Ride</a>
 			<a class="w3-bar-item w3-button">
 				<form th:action="@{/logout}" method="post">
 					<input type="submit" visible="false" value="Sign Out" />
