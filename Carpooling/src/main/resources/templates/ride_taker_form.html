@@ -36,15 +36,8 @@ body, html {
 		<a href="/" class="w3-bar-item w3-button w3-wide">FANRIDE</a>
 		<!-- Right-sided navbar links -->
 		<div class="w3-right w3-hide-small">
-			<a th:href="@{/GiveRide}" class="w3-bar-item w3-button">Give Ride</a>
-			<a th:href="@{/TakeRide}" class="w3-bar-item w3-button">Take Ride</a>
-			<a class="w3-bar-item w3-button">
-				<form th:action="@{/logout}" method="post">
-					<input type="submit" visible="false" value="Sign Out" />
-				</form>
-			</a>
-
-
+			<a th:href="@{/users}" class="w3-bar-item w3-button">Book Your Ride</a>
+			<a th:href="@{/login}" class="w3-bar-item w3-button">Login</a>
 		</div>
 		<!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -65,34 +58,11 @@ body, html {
 </nav>
 
 
-
-</div>
-<div class="container text-center">
-	<div>
-		<h1>List of Users</h1>
-	</div>
-
-	<div>
-		<table class="table table-striped table-bordered">
-			<thead class="thead-dark">
-			<tr>
-				<th>User ID</th>
-				<th>E-mail</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr th:each="user: ${listUsers}">
-				<td th:text="${user.id}">User ID</td>
-				<td th:text="${user.email}">E-mail</td>
-				<td th:text="${user.firstName}">First Name</td>
-				<td th:text="${user.lastName}">Last Name</td>
-			</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
-<script src="myscript.js"></script>
+<h1>Form</h1>
+<form action="#" th:action="@{/ride_taker_processed}" th:object="${ride_taker}" method="post">
+	<p>Student Id: <input type="text" th:field="*{id}" /></p>
+	<p>Ride Id: <input type="text" th:field="*{ride_id}" /></p>
+	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
 </body>
 </html>
