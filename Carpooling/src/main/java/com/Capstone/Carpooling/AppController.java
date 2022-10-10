@@ -81,18 +81,18 @@ public class AppController {
 	}
 
 
-@GetMapping("/ride_taker")
+@GetMapping("/ride_book")
 	public String takerForm(Model model) {
 		model.addAttribute("ride_taker", new RideTaker());
-		return "ride_taker_form";
+		return "ride_book_form";
 	}
 
 
-	@PostMapping("/ride_taker_processed")
+	@PostMapping("/ride_book_processed")
 	public String takerSubmit(@ModelAttribute RideTaker ride_taker, Model model) {
 		model.addAttribute("ride_taker", ride_taker);
 		ridetakerRepo.save(ride_taker);
-		return "ride_giver_result";
+		return "ride_book_result";
 	}
 
 
