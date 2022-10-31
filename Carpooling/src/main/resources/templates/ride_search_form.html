@@ -77,19 +77,16 @@ body, html {
 		</thead>
 		<tbody>
 		<tr th:each="RideGiver: ${listRideGivers}">
-			<td th:text="${RideGiver.id}">Ride ID</td>
+			<td  th:text="${RideGiver.id}">Ride ID</td>
 			<td th:text="${RideGiver.ride_giver_id}">RideGiver ID</td>
 			<td th:text="${RideGiver.CarNumber}">Car Number</td>
 			<td th:text="${RideGiver.StartLocation}">Start location </td>
 			<td th:text="${RideGiver.Destination}">Destination</td>
 			<td th:text="${RideGiver.pricePerKM}">Price Per KM</td>
-			<td><form th:action="@{/ride_book}" method="post">
-				<input type="submit" visible="false" value="Select Ride" />
-			</form></td>
-
+			<td> <a th:href="@{/ride_book/{id}(id=${RideGiver.id})}" >Select Ride<i class="fa fa-edit" ></i></a></td>
 		</tr>
 		</tbody>
 	</table>
-</div>
+	</div>
 </body>
 </html>

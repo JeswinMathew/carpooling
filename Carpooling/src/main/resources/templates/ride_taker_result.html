@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Book New Ride</title>
+	<title>FanRide</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -28,7 +28,7 @@ body, html {
 }
 </style>
 </head>
-<body onload = "functionToCall()">
+<body>
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
@@ -36,12 +36,8 @@ body, html {
 		<a href="/" class="w3-bar-item w3-button w3-wide">FANRIDE</a>
 		<!-- Right-sided navbar links -->
 		<div class="w3-right w3-hide-small">
-			<a th:href="@{/users}" class="w3-bar-item w3-button">Dashboard</a>
-			<a class="w3-bar-item w3-button">
-				<form th:action="@{/logout}" method="post">
-					<input type="submit" visible="false" value="Sign Out" />
-				</form>
-			</a>
+			<a th:href="@{/users}" class="w3-bar-item w3-button">Book Your Ride</a>
+			<a th:href="@{/login}" class="w3-bar-item w3-button">Login</a>
 		</div>
 		<!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -60,25 +56,8 @@ body, html {
 	<a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
 	<a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
-</br></br></br>
-<div>
-	<h1>Form</h1>
-	<form action="#" th:action="@{/ride_taker_processed}" th:object="${ride_taker}" method="post">
-		<p>Start Location: <input type="text" onclick="functionToCall()"  th:field="*{StartLocation}" /></p>
-		<p>Destination: <input type="text" th:field="*{Destination}" /></p>
-		<p>KM: <input type="text" th:field="*{KM}" /></p>
-		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
 
 
-		<input type="text" hidden="true" id="rid" th:field="*{ride_Id}"  /></p>
-		<input type="text" hidden="true" id="rid1" th:value="${message}" th:name="name"  />
-
-	</form>
-</div>
-<script type="text/javascript">
-	function functionToCall(){
-	document.getElementById("rid").value=	document.getElementById("rid1").value
-	}
-</script>
+<h1>Form</h1>
 </body>
 </html>

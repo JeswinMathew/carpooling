@@ -8,12 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AppController {
@@ -71,19 +66,27 @@ public class AppController {
 		ridegiverRepo.save(ride_giver);
 		return "ride_giver_result";
 	}
+	@PostMapping("/ride_taker_processed")
+	public String giverSubmit(@ModelAttribute RideTaker ride_taker, Model model) {
+		model.addAttribute("ride_taker", ride_taker);
+		ridetakerRepo.save(ride_taker);
+		return "ride_taker_result";
+	}
 
 
 @GetMapping("/ride_search")
 	public String listRideGivers(Model model) {
 		List<RideGiver> listRideGivers = ridegiverRepo.findAll();
 		model.addAttribute("listRideGivers", listRideGivers);
+	    model.addAttribute("ride_taker", new RideTaker());
 		return "ride_search_form";
 	}
 
 
-@GetMapping("/ride_book")
-	public String takerForm(Model model) {
+@GetMapping("/ride_book/{id}")
+	public String takerForm(@PathVariable("id") long id , Model model) {
 		model.addAttribute("ride_taker", new RideTaker());
+	    model.addAttribute("message", id);
 		return "ride_book_form";
 	}
 
@@ -94,10 +97,5 @@ public class AppController {
 		ridetakerRepo.save(ride_taker);
 		return "ride_book_result";
 	}
-
-
-
-
-
 
 }
