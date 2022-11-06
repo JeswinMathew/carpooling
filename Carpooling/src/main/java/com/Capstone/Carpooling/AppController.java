@@ -3,12 +3,14 @@ package com.Capstone.Carpooling;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AppController {
@@ -38,9 +40,7 @@ public class AppController {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodedPassword);
-		
-		userRepo.save(user);
-		
+		User savedUser = userRepo.save(user);
 		return "register_success";
 	}
 	
@@ -82,8 +82,18 @@ public class AppController {
 		return "ride_search_form";
 	}
 
+	@GetMapping("/admin")
+	public String listAdminData(Model model) {
+		List<RideGiver> listRideGivers = ridegiverRepo.findAll();
+		model.addAttribute("listRideGivers", listRideGivers);
+		List<RideTaker> listRideTakers = ridetakerRepo.findAll();
+		model.addAttribute("listRideTakers", listRideTakers);
+		List<User> listUsers = userRepo.findAll();
+		model.addAttribute("listUsers", listUsers);
+		return "admin";
+	}
 
-@GetMapping("/ride_book/{id}")
+	@GetMapping("/ride_book/{id}")
 	public String takerForm(@PathVariable("id") long id , Model model) {
 		model.addAttribute("ride_taker", new RideTaker());
 	    model.addAttribute("message", id);

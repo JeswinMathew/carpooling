@@ -1,12 +1,14 @@
 package com.Capstone.Carpooling;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
+import org.hibernate.mapping.List;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class CustomUserDetails implements UserDetails {
-
 	private User user;
 	
 	public CustomUserDetails(User user) {
