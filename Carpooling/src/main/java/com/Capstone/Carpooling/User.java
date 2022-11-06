@@ -1,9 +1,11 @@
 package com.Capstone.Carpooling;
 
-import javax.management.relation.Role;
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
@@ -24,17 +26,6 @@ public class User {
 
     @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
-
-    @Column(name = "role", nullable = false, length = 20)
-    private Role role;
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
     public Long getId() {
         return id;
