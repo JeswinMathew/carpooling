@@ -98,4 +98,35 @@ public class AppController {
 		return "ride_book_result";
 	}
 
+	@GetMapping("/admin")
+	public String listForAdmin(Model model) {
+		List<RideGiver> listRideGivers = ridegiverRepo.findAll();
+		model.addAttribute("listRideGivers", listRideGivers);
+		List<RideTaker> listRideTakers = ridetakerRepo.findAll();
+		model.addAttribute("listRideTakers", listRideTakers);
+		List<User> listUsers = userRepo.findAll();
+		model.addAttribute("listUsers", listUsers);
+		return "admin";
+	}
+
+
+	@RequestMapping(value = "/deleteUser/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+	public String deleteUser(@PathVariable("id") long id) {
+		userRepo.deleteById(id);
+		return "register_success";
+	}
+	@RequestMapping(value = "/deleteRideGiver/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+	public String deleteRideGiver(@PathVariable("id") long id) {
+		ridegiverRepo.deleteById(id);
+		return "register_success";
+	}
+	@RequestMapping(value = "/deleteRideTaker/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+	public String deleteRideTaker(@PathVariable("id") long id) {
+		ridetakerRepo.deleteById(id);
+		return "register_success";
+	}
+
+
+
+
 }
