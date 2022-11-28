@@ -82,8 +82,7 @@ body, html {
 			<td th:text="${RideGiver.StartLocation}">Start location </td>
 			<td th:text="${RideGiver.Destination}">Destination</td>
 			<td th:text="${RideGiver.pricePerKM}">Price Per KM</td>
-			<td> <a th:href="@{/ride_book/{id}(id=${RideGiver.id})}" >DELETE<i class="fa fa-edit" ></i></a></td>
-			<td> <a th:href="@{/ride_book/{id}(id=${RideGiver.id})}" >UPDATE<i class="fa fa-edit" ></i></a></td>
+			<td> <a th:href="@{/deleteRideGiver/{id}(id=${RideGiver.id})}" >DELETE<i class="fa fa-edit" ></i></a></td>
 		</tr>
 		</tbody>
 	</table>
@@ -105,8 +104,7 @@ body, html {
 			<td th:text="${RideTaker.StartLocation}">Start location </td>
 			<td th:text="${RideTaker.Destination}">Destination</td>
 			<td th:text="${RideTaker.KM}">KM</td>
-			<td> <a th:href="@{/ride_book/{id}(id=${RideTaker.id})}" >DELETE<i class="fa fa-edit" ></i></a></td>
-			<td> <a th:href="@{/ride_book/{id}(id=${RideTaker.id})}" >UPDATE<i class="fa fa-edit" ></i></a></td>
+			<td> <a th:href="@{/deleteRideTaker/{id}(id=${RideTaker.id})}" >DELETE<i class="fa fa-edit" ></i></a></td>
 		</tr>
 		</tbody>
 	</table>
@@ -128,8 +126,7 @@ body, html {
 			<td th:text="${user.email}">E-mail</td>
 			<td th:text="${user.firstName}">First Name</td>
 			<td th:text="${user.lastName}">Last Name</td>
-			<td> <a th:href="@{/ride_book/{id}(id=${user.id})}" >DELETE<i class="fa fa-edit" ></i></a></td>
-			<td> <a th:href="@{/ride_book/{id}(id=${user.id})}" >UPDATE<i class="fa fa-edit" ></i></a></td>
+			<td> <a th:href="@{/deleteUser/{id}(id=${user.id})}" >DELETE<i class="fa fa-edit" ></i></a></td>
 		</tr>
 		</tbody>
 	</table>

@@ -126,7 +126,4 @@ public class AppController {
 		return "register_success";
 	}
 
-
-
-
 }
