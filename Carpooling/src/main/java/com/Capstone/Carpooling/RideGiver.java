@@ -2,6 +2,7 @@ package com.Capstone.Carpooling;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "ride_giver")
@@ -22,6 +23,29 @@ public class RideGiver {
     private String CarNumber;
     @Column(length = 2)
     private String seats;
+
+    public String getSeats() {
+        return seats;
+    }
+
+    public void setSeats(String seats) {
+        this.seats = seats;
+    }
+
+    public java.sql.Date getRideDate() {
+        return rideDate;
+    }
+
+    public void setRideDate(java.sql.Date rideDate) {
+        this.rideDate = rideDate;
+    }
+
+    public void setRideDate(Date rideDate) {
+        this.rideDate = (java.sql.Date) rideDate;
+    }
+
+    @Column(length = 45)
+    private java.sql.Date rideDate;
 
     public String getseats() {
         return seats;

@@ -52,26 +52,19 @@ body, html {
 </div>
 
 <!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-	<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-	<a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-	<a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
-	<a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
-	<a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
-	<a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
-</nav>
+
 </br></br></br>
 <div>
-	<h1>Form</h1>
+	<h1>Book Your Ride</h1>
 	<form action="#" th:action="@{/ride_taker_processed}" th:object="${ride_taker}" method="post">
-		<p>Start Location: <input type="text" onclick="functionToCall()"  th:field="*{StartLocation}" /></p>
-		<p>Destination: <input type="text" th:field="*{Destination}" /></p>
-		<p>KM: <input type="text" th:field="*{KM}" /></p>
+		<p>Start Location: <input type="text" required onclick="functionToCall()"  th:field="*{StartLocation}" /></p>
+		<p>Destination   : <input type="text" required th:field="*{Destination}" /></p>
+		<p>KM            : <input type="number" required th:field="*{KM}" /></p>
 		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
 
 
-		<input type="text" hidden="true" id="rid" th:field="*{ride_Id}"  /></p>
-		<input type="text" hidden="true" id="rid1" th:value="${message}" th:name="name"  />
+		<input type="text"  hidden="true" id="rid" th:field="*{ride_Id}"  /></p>
+		<input type="text"  hidden="true" id="rid1" th:value="${message}" th:name="name"  />
 
 	</form>
 </div>
