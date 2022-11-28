@@ -26,6 +26,21 @@ body, html {
 .w3-bar .w3-button {
   padding: 16px;
 }
+p{
+
+width:40%
+
+text-align:left;
+}
+input{
+}
+
+fieldset{
+
+width:40%
+
+}
+
 </style>
 </head>
 <body>
@@ -52,17 +67,21 @@ body, html {
 </div>
 
 
-<h1>Form</h1>
+<h1>&nbsp;</h1>
+<h1>Add New Ride</h1>
 <form action="#" th:action="@{/ride_giver_processed}" th:object="${ride_giver}" method="post">
-	<p>Ride Id       : <input type="text" required th:field="*{id}" /></p>
-	<p>Student Id    : <input type="text" required th:field="*{ride_giver_id}" /></p>
-	<p>Start Location: <input type="text" required th:field="*{startLocation}" /></p>
-	<p>Destination   : <input type="text" required th:field="*{Destination}" /></p>
-	<p>Car Number    : <input type="text" required th:field="*{CarNumber}" /></p>
-	<p>Price per KM  : <input type="number" required value="1" th:field="*{pricePerKM}" /></p>
-	<p>Seats         : <input type="number" required value="1" th:field="*{seats}" /></p>
-	<p>Date          : <input type="date" required placeholder="mm/dd/yyyy" value="" min="1997/01/01" max="2030/12/31" th:field="*{rideDate}" /></p>
-	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+	<fieldset>
+	<p>Ride Id       : </p><input type="text" required th:field="*{id}" />
+	<p>Student Id    : </p><input type="text" required th:field="*{ride_giver_id}" />
+	<p>Start Location: </P><input type="text" required th:field="*{startLocation}" />
+	<p>Destination   : </P><input type="text" required th:field="*{Destination}" />
+	<p>Car Number    : </P><input type="text" required th:field="*{CarNumber}" />
+	<p>Price per KM  : </P><input type="number" required value="1" th:field="*{pricePerKM}" />
+	<p>Seats         : </P><input type="number" required value="1" th:field="*{seats}" />
+	<p>Date          : </P><input type="date" required placeholder="mm/dd/yyyy" value="" min="1997/01/01" max="2030/12/31" th:field="*{rideDate}" />
+		<br/><br/>
+		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+	</fieldset>
 </form>
 </body>
 </html>

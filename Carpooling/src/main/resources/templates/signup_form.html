@@ -15,16 +15,23 @@ body, html {
   line-height: 1.8;
 }
 
-/* Full height image header */
-.bgimg-1 {
-  background-position: center;
-  background-size: cover;
-  background-image: url("/w3images/mac.jpg");
-  min-height: 100%;
-}
 
 .w3-bar .w3-button {
   padding: 16px;
+}
+
+label{
+
+width:40%
+align:left;
+
+text-align:left;
+}
+input{}
+fieldset{
+
+width:300px;
+
 }
 </style>
 </head>
@@ -46,54 +53,36 @@ body, html {
 		</a>
 	</div>
 </div>
-
-
-</div>
-<div class="container text-center">
-	<div>
 		<br/><br/>
-		<h1>User Registration - Sign Up</h1>
-	</div>
+		<h1>FanRide User Registration</h1>
+
 	<form th:action="@{/process_register}" th:object="${user}"
-		  method="post" style="max-width: 600px; margin: 0 auto;">
-		<div class="m-3">
-			<div class="form-group row">
-				<label class="col-4 col-form-label">E-mail: </label>
-				<div class="col-8">
-					<input type="email" th:field="*{email}" class="form-control" required />
-				</div>
-			</div>
+		  method="post">
 
-			<div class="form-group row">
-				<label class="col-4 col-form-label">Password: </label>
-				<div class="col-8">
-					<input type="password" th:field="*{password}" class="form-control"
+		<fieldset>
+		<label >E-mail: </label><br/><br/>
+		<input type="email" th:field="*{email}" required />
+			<br/><br/>
+
+		<label >Password: </label><br/><br/>
+		<input type="password" th:field="*{password}" 
 						   required minlength="6" maxlength="10"/>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label class="col-4 col-form-label">First Name: </label>
-				<div class="col-8">
-					<input type="text" required th:field="*{firstName}" class="form-control"
+			<br/><br/>
+		<label >First Name: </label><br/><br/>
+		<input type="text" required th:field="*{firstName}"
 						    minlength="2" maxlength="20"/>
-				</div>
-			</div>
+			<br/><br/>
 
-			<div class="form-group row">
-				<label class="col-4 col-form-label">Last Name: </label>
-				<div class="col-8">
-					<input type="text" required th:field="*{lastName}" class="form-control"
+		<label >Last Name: </label><br/><br/>
+		<input type="text" required th:field="*{lastName}"
 						    minlength="2" maxlength="20" />
-				</div>
-			</div>
+			<br/><br/>
 
-			<div>
-				<button type="submit" class="btn btn-primary">Sign Up</button>
-			</div>
-		</div>
+
+		<button type="submit" >Sign Up</button>
+		</fieldset>
+
 	</form>
-</div>
 <script src="myscript.js"></script>
 </body>
 </html>
