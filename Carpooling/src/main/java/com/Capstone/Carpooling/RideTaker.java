@@ -10,8 +10,19 @@ public class RideTaker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Column(length = 45)
     private long ride_Id;
+    @Column(nullable = false, unique = true, length = 45)
+    private String email;
     @Column(length = 45)
     private String StartLocation;
     @Column(length = 45)

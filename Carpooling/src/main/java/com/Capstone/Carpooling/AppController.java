@@ -51,6 +51,10 @@ public class AppController {
 		String email = LoggedInUser.getEmail();
 		User listUsers = userRepo.findByEmail(email);
 		model.addAttribute("listUsers", listUsers);
+		RideGiver listRideGivers = ridegiverRepo.findByEmail(email);
+		model.addAttribute("listRideGivers", listRideGivers);
+		RideTaker listRideTakers = ridetakerRepo.findByEmail(email);
+		model.addAttribute("listRideTakers", listRideTakers);
 		return "users";
 	}
 

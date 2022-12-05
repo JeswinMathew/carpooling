@@ -21,8 +21,20 @@ public class RideGiver {
     private BigDecimal pricePerKM;
     @Column(length = 45)
     private String CarNumber;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Column(length = 2)
     private String seats;
+
+    @Column(nullable = false, unique = true, length = 45)
+    private String email;
 
     public String getSeats() {
         return seats;

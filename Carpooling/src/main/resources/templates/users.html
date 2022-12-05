@@ -81,6 +81,55 @@ body, html {
 			</tr>
 			</tbody>
 		</table>
+		<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+			<tr>
+				<th>Ride ID</th>
+				<th>Ride Giver ID</th>
+				<th>Car Number</th>
+				<th>Start Location </th>
+				<th>Destination </th>
+				<th>Price per KM </th>
+				<th>Select the ride </th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="RideGiver: ${listRideGivers}">
+				<td  th:text="${RideGiver.id}">Ride ID</td>
+				<td th:text="${RideGiver.ride_giver_id}">RideGiver ID</td>
+				<td th:text="${RideGiver.CarNumber}">Car Number</td>
+				<td th:text="${RideGiver.StartLocation}">Start location </td>
+				<td th:text="${RideGiver.Destination}">Destination</td>
+				<td th:text="${RideGiver.pricePerKM}">Price Per KM</td>
+				<td th:text="${RideGiver.seats}">seats</td>
+				<td th:text="${RideGiver.pricePerKM}">Date</td>
+				<td> <a th:href="@{/deleteRideGiver/{id}(id=${RideGiver.id})}" >DELETE<i class="fa fa-edit" ></i></a></td>
+			</tr>
+			</tbody>
+		</table>
+
+		<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+			<tr>
+				<th>RideTaker ID</th>
+				<th>Ride ID</th>
+				<th>Start</th>
+				<th>Destination</th>
+				<th>KM</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="RideTaker: ${listRideTakers}">
+				<td  th:text="${RideTaker.id}">Ride ID</td>
+				<td th:text="${RideTaker.ride_Id}">RideGiver ID</td>
+				<td th:text="${RideTaker.StartLocation}">Start location </td>
+				<td th:text="${RideTaker.Destination}">Destination</td>
+				<td th:text="${RideTaker.KM}">KM</td>
+				<td> <a th:href="@{/deleteRideTaker/{id}(id=${RideTaker.id})}" >DELETE<i class="fa fa-edit" ></i></a></td>
+			</tr>
+			</tbody>
+		</table>
+
 	</div>
 </div>
 <script src="myscript.js"></script>

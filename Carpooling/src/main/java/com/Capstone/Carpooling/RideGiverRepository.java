@@ -6,7 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface RideGiverRepository extends JpaRepository<RideGiver, Long> {
-   /* @Query("SELECT r FROM RideGiver r WHERE r.destination = ?1")
-    public RideGiver findByDestination(String destination);*/
+    @Query("SELECT rg FROM RideGiver rg WHERE rg.email = ?1")
+    public RideGiver findByEmail(String email);
+
+    @Query("SELECT rg FROM RideGiver rg WHERE rg.id = ?1")
+    public RideGiver findByID(Long id);
 }
 
