@@ -69,8 +69,8 @@ body, html {
 		</thead>
 		<tbody>
 		<tr th:each="RideGiver: ${listRideGivers}">
-			<td  th:text="${RideGiver.id}">Ride ID</td>
-			<td th:text="${RideGiver.rideGiverEmail}">RideGiver ID</td>
+
+			<td th:text="${RideGiver.email}">RideGiver Email</td>
 			<td th:text="${RideGiver.CarNumber}">Car Number</td>
 			<td th:text="${RideGiver.StartLocation}">Start location </td>
 			<td th:text="${RideGiver.Destination}">Destination</td>
@@ -95,7 +95,7 @@ body, html {
 		<tbody>
 		<tr th:each="RideTaker: ${listRideTakers}">
 			<td  th:text="${RideTaker.id}">Ride ID</td>
-			<td th:text="${RideTaker.ride_Id}">RideGiver ID</td>
+
 			<td th:text="${RideTaker.StartLocation}">Start location </td>
 			<td th:text="${RideTaker.Destination}">Destination</td>
 			<td th:text="${RideTaker.KM}">KM</td>
