@@ -21,6 +21,17 @@ public class RideGiver {
     private BigDecimal pricePerKM;
     @Column(length = 45)
     private String CarNumber;
+    @Column(length = 45)
+    private String Time;
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
+    }
+
     @Column(length = 2)
     private int seats;
 

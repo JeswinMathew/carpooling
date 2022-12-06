@@ -93,6 +93,9 @@ public class AppController {
 	public String takerForm(@PathVariable("email") String email , Model model) {
 		model.addAttribute("ride_taker", new RideTaker());
 	    model.addAttribute("message", email);
+	RideGiver rideGiver= ridegiverRepo.findByEmail(email);
+	rideGiver.setSeats(rideGiver.getSeats()-1);
+	ridegiverRepo.save(rideGiver);
 		return "ride_book_form";
 	}
 

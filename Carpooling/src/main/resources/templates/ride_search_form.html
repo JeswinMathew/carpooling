@@ -28,7 +28,7 @@ body, html {
 }
 </style>
 </head>
-<body>
+<body onload = "functionToCall()">
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
@@ -64,6 +64,9 @@ body, html {
 			<th>Start Location </th>
 			<th>Destination </th>
 			<th>Price per KM </th>
+			<th>Seats Available </th>
+			<th>Date </th>
+			<th>Time </th>
 			<th>Select the ride </th>
 
 		</tr>
@@ -76,10 +79,15 @@ body, html {
 			<td th:text="${RideGiver.StartLocation}">Start location </td>
 			<td th:text="${RideGiver.Destination}">Destination</td>
 			<td th:text="${RideGiver.pricePerKM}">Price Per KM</td>
+			<td th:text="${RideGiver.seats}">Seats Available</td>
+			<td th:text="${RideGiver.rideDate}">Date</td>
+			<td th:text="${RideGiver.Time}">Time</td>
 			<td> <a th:href="@{/ride_book/{email}(email=${RideGiver.email})}" >Select Ride<i class="fa fa-edit" ></i></a></td>
 		</tr>
 		</tbody>
 	</table>
+
 	</div>
+
 </body>
 </html>

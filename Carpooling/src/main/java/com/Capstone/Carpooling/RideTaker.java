@@ -18,6 +18,17 @@ public class RideTaker {
     private String StartLocation;
     @Column(length = 45)
     private String Destination;
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
+    }
+
+    @Column(length = 45)
+    private String Time;
     @Column(length = 45)
     private BigDecimal KM;
 
