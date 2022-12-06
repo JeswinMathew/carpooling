@@ -85,7 +85,7 @@ body, html {
 
 		<br> <br><br>
 		<div>
-			<h1>Rides You Give</h1>
+			<h1>Rides I Give</h1>
 		</div>
 
 		<table class="table table-striped table-bordered">
@@ -112,7 +112,7 @@ body, html {
 				<td th:text="${RideGiver.Destination}">Destination</td>
 				<td th:text="${RideGiver.pricePerKM}">Price Per KM</td>
 				<td th:text="${RideGiver.seats}">seats</td>
-				<td th:text="${RideGiver.Date}">Date</td>
+				<td th:text="${RideGiver.rideDate}">Date</td>
 				<td th:text="${RideGiver.Time}">Time</td>
 				<td> <a th:href="@{/deleteRideGiver/{id}(id=${RideGiver.id})}" >Cancel The ride<i class="fa fa-edit" ></i></a></td>
 			</tr>
@@ -120,7 +120,7 @@ body, html {
 		</table>
 		<br> <br><br>
 		<div>
-			<h1>Rides You Take</h1>
+			<h1>Rides I Take</h1>
 		</div>
 
 		<table class="table table-striped table-bordered">
