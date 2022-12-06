@@ -55,6 +55,8 @@ public class AppController {
 		model.addAttribute("listRideGivers", listRideGivers);
 		RideTaker listRideTakers = ridetakerRepo.findByEmail(email);
 		model.addAttribute("listRideTakers", listRideTakers);
+		RideTaker listMyRideTakers = ridetakerRepo.findByRideGiverEmail(email);
+		model.addAttribute("listMyRideTakers", listMyRideTakers);
 		return "users";
 	}
 
@@ -87,10 +89,10 @@ public class AppController {
 	}
 
 
-@GetMapping("/ride_book/{id}")
-	public String takerForm(@PathVariable("id") long id , Model model) {
+@GetMapping("/ride_book/{email}")
+	public String takerForm(@PathVariable("email") String email , Model model) {
 		model.addAttribute("ride_taker", new RideTaker());
-	    model.addAttribute("message", id);
+	    model.addAttribute("message", email);
 		return "ride_book_form";
 	}
 

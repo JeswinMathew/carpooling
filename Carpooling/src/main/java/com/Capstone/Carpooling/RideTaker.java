@@ -10,6 +10,16 @@ public class RideTaker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(length = 45)
+    private String email;
+    @Column(length = 45)
+    private String rideGiverEmail;
+    @Column(length = 45)
+    private String StartLocation;
+    @Column(length = 45)
+    private String Destination;
+    @Column(length = 45)
+    private BigDecimal KM;
 
     public String getEmail() {
         return email;
@@ -19,16 +29,15 @@ public class RideTaker {
         this.email = email;
     }
 
-    @Column(length = 45)
-    private long ride_Id;
-    @Column(nullable = false, unique = true, length = 45)
-    private String email;
-    @Column(length = 45)
-    private String StartLocation;
-    @Column(length = 45)
-    private String Destination;
-    @Column(length = 45)
-    private BigDecimal KM;
+
+
+    public String getRideGiverEmail() {
+        return rideGiverEmail;
+    }
+
+    public void setRideGiverEmail(String rideGiverEmail) {
+        this.rideGiverEmail = rideGiverEmail;
+    }
 
     public String getStartLocation() {
         return StartLocation;
@@ -52,14 +61,6 @@ public class RideTaker {
 
     public void setKM(BigDecimal KM) {
         this.KM = KM;
-    }
-
-    public long getRide_Id() {
-        return ride_Id;
-    }
-
-    public void setRide_Id(long ride_Id) {
-        this.ride_Id = ride_Id;
     }
 
     public long getId() {

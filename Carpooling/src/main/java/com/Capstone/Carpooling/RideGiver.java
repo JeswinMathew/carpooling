@@ -12,7 +12,7 @@ public class RideGiver {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 45)
-    private long ride_giver_id;
+    private String email;
     @Column(length = 45)
     private String StartLocation;
     @Column(length = 45)
@@ -21,6 +21,8 @@ public class RideGiver {
     private BigDecimal pricePerKM;
     @Column(length = 45)
     private String CarNumber;
+    @Column(length = 2)
+    private int seats;
 
     public String getEmail() {
         return email;
@@ -30,17 +32,12 @@ public class RideGiver {
         this.email = email;
     }
 
-    @Column(length = 2)
-    private String seats;
 
-    @Column(nullable = false, unique = true, length = 45)
-    private String email;
-
-    public String getSeats() {
+    public int getSeats() {
         return seats;
     }
 
-    public void setSeats(String seats) {
+    public void setSeats(int seats) {
         this.seats = seats;
     }
 
@@ -59,11 +56,11 @@ public class RideGiver {
     @Column(length = 45)
     private java.sql.Date rideDate;
 
-    public String getseats() {
+    public int getseats() {
         return seats;
     }
 
-    public void setseats(String seats) {
+    public void setseats(int seats) {
         this.seats = seats;
     }
 
@@ -99,15 +96,6 @@ public class RideGiver {
 
     public void setCarNumber(String carNumber) {
         CarNumber = carNumber;
-    }
-
-
-    public long getRide_giver_id() {
-        return ride_giver_id;
-    }
-
-    public void setRide_giver_id(long ride_giver_id) {
-        this.ride_giver_id = ride_giver_id;
     }
 
     public long getId() {

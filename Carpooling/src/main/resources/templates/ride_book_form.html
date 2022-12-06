@@ -77,14 +77,13 @@ width:40%
 		<p>Destination   : </P><input type="text" required th:field="*{Destination}" />
 		<p>KM            : </P><input type="number" required th:field="*{KM}" />
 			<p>Email            : </P><input type="text" required th:field="*{email}" />
-
 			<br/><br/>
-		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+			<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />/>
+
 		</fieldset>
+		<input type="text" hidden="true" id="rid" th:field="*{rideGiverEmail}"  />
+		<input type="text"  hidden="true" id="rid1" th:value="${message}" th:name="name"/>
 
-
-		<input type="text"  hidden="true" id="rid" th:field="*{ride_Id}"  />
-		<input type="text"  hidden="true" id="rid1" th:value="${message}" th:name="name"  />
 
 	</form>
 </div>

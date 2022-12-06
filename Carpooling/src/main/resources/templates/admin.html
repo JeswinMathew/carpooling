@@ -70,7 +70,7 @@ body, html {
 		<tbody>
 		<tr th:each="RideGiver: ${listRideGivers}">
 			<td  th:text="${RideGiver.id}">Ride ID</td>
-			<td th:text="${RideGiver.ride_giver_id}">RideGiver ID</td>
+			<td th:text="${RideGiver.rideGiverEmail}">RideGiver ID</td>
 			<td th:text="${RideGiver.CarNumber}">Car Number</td>
 			<td th:text="${RideGiver.StartLocation}">Start location </td>
 			<td th:text="${RideGiver.Destination}">Destination</td>

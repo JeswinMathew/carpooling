@@ -71,12 +71,10 @@ width:40%
 <h1>Add New Ride</h1>
 <form action="#" th:action="@{/ride_giver_processed}" th:object="${ride_giver}" method="post">
 	<fieldset>
-	<p>Ride Id       : </p><input type="text" required th:field="*{id}" />
-	<p>Student Id    : </p><input type="text" required th:field="*{ride_giver_id}" />
+	<p>Email  : </p><input type="text" required th:field="*{email}" />
 	<p>Start Location: </P><input type="text" required th:field="*{startLocation}" />
 	<p>Destination   : </P><input type="text" required th:field="*{Destination}" />
 	<p>Car Number    : </P><input type="text" required th:field="*{CarNumber}" />
-		<p>Email    : </P><input type="text" required th:field="*{email}" />
 		<p>Price per KM  : </P><input type="number" required value="1" th:field="*{pricePerKM}" />
 	<p>Seats         : </P><input type="number" required value="1" th:field="*{seats}" />
 	<p>Date          : </P><input type="date" required placeholder="mm/dd/yyyy" value="" min="1997/01/01" max="2030/12/31" th:field="*{rideDate}" />
